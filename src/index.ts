@@ -1,3 +1,5 @@
+#! /usr/bin/env node
+
 import { Publisher } from './components/publisher/publisher';
 import { ArgumentParser } from '@eigenspace/argument-parser';
 
