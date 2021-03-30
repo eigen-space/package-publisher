@@ -140,7 +140,7 @@ export class Publisher {
     private getDistDirectory(currentDir: string): string {
         const distDir = path.join(currentDir, 'dist');
         const resultDir = fs.existsSync(distDir) && distDir || currentDir;
-        this.logger.info('getDistDirectory', 'dist directory:', resultDir);
+        this.logger.info('getDistDirectory', 'content of the dist directory:', resultDir);
 
         return resultDir;
     }
