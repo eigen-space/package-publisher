@@ -51,6 +51,8 @@ export class Publisher {
 
         projectPaths.forEach(projectPath => {
             const currentDir = `${process.cwd()}${projectPath}`;
+            this.logger.info('start', 'current directory:', currentDir);
+
             this.incrementPackageVersionAndPublish(currentDir);
             this.incrementProjectVersionAndCommit(currentDir);
         });
@@ -137,7 +139,10 @@ export class Publisher {
     // noinspection JSMethodCanBeStatic
     private getDistDirectory(currentDir: string): string {
         const distDir = path.join(currentDir, 'dist');
-        return fs.existsSync(distDir) && distDir || currentDir;
+        const resultDir = fs.existsSync(distDir) && distDir || currentDir;
+        this.logger.info('getDistDirectory', 'dist directory:', resultDir);
+
+        return resultDir;
     }
 
     private checkForProjectExistence(packageName: string): boolean {
