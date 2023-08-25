@@ -85,7 +85,7 @@ export class Publisher {
 
         const projectExists = this.checkForProjectExistence(name);
         // We check it exists in npm registry in case we try to push already published version
-        const versionInRegistry = projectExists && this.npmExec.view(fullVersion);
+        const versionInRegistry = projectExists && this.npmExec.checkIfVersionExists(fullVersion);
         if (versionInRegistry) {
             throw new Error(PublishErrorType.ALREADY_IN_REGISTRY);
         }

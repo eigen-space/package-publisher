@@ -8,8 +8,13 @@ export class NpmExecutor extends Executor {
         return this.run(`npm publish ${dir} --access public`);
     }
 
-    view(version: string): string {
-        return this.run(`npm view ${version} version`);
+    checkIfVersionExists(version: string): boolean {
+        try {
+            this.run(`npm view ${version} version`);
+            return true;
+        } catch (e) {
+            return false;
+        }
     }
 
     search(packageName: string): string {

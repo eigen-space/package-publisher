@@ -56,7 +56,7 @@ describe('Publisher', () => {
         });
 
         it('should throw exception if package is already in npm repository', () => {
-            (npmExec.view as Mock).mockReturnValueOnce(true);
+            (npmExec.checkIfVersionExists as Mock).mockReturnValueOnce(true);
             expect(() => publisher.start('master')).toThrow(PublishErrorType.ALREADY_IN_REGISTRY);
         });
 

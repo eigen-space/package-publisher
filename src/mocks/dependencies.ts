@@ -16,7 +16,7 @@ const mockGitExec = new MockGitExecutor();
 const MockNpmExecutor = jest.fn()
     .mockImplementation(() => ({
         publish: jest.fn(),
-        view: jest.fn(),
+        checkIfVersionExists: jest.fn(),
         search: jest.fn()
     }));
 const mockNpmExec = new MockNpmExecutor();
